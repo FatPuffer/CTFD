@@ -140,6 +140,7 @@ def register():
 
         name_len = len(name) == 0
         names = Users.query.add_columns('name', 'id').filter_by(name=name).first()
+        print(names)
         emails = Users.query.add_columns('email', 'id').filter_by(email=email_address).first()
         pass_short = len(password) == 0
         pass_long = len(password) > 128

@@ -17,7 +17,6 @@ from CTFd.utils.events import socketio
 from CTFd.plugins import init_plugins
 
 # Hack to support Unicode in Python 2 properly
-# Judge python version
 if sys.version_info[0] < 3:
     reload(sys)
     sys.setdefaultencoding("utf-8")
@@ -28,7 +27,6 @@ __version__ = '2.0.0'
 class CTFdFlask(Flask):
     def __init__(self, *args, **kwargs):
         """Overriden Jinja constructor setting a custom jinja_environment"""
-        # 生成沙盒代码,覆盖告诉运行时可以安全访问哪些属性或函数,如果模板尝试访问不安全的代码，则会引发SecurityError.
         self.jinja_environment = SandboxedBaseEnvironment
         self.jinja_environment.cache = None
         self.session_interface = CachingSessionInterface(key_prefix='session')

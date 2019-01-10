@@ -96,9 +96,7 @@ class Config(object):
         CTFd only uses IP addresses for cursory tracking purposes. It is ill-advised to do anything complicated based
         solely on IP addresses unless you know what you are doing.
     '''
-    # 在浏览器的 document对象中就看不到Cookie了，而浏览器在浏览的时候不受任何影响,能有效的防止XSS攻击
     SESSION_COOKIE_HTTPONLY = (not os.getenv("SESSION_COOKIE_HTTPONLY"))  # Defaults True
-    # 缓存时间
     PERMANENT_SESSION_LIFETIME = int(os.getenv("PERMANENT_SESSION_LIFETIME") or 604800)  # 7 days in seconds
     TRUSTED_PROXIES = [
         r'^127\.0\.0\.1$',

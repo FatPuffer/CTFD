@@ -42,6 +42,7 @@ def private():
     awards = user.get_awards()
 
     place = user.place
+    print('place',place)
     score = user.score
 
     return render_template(
